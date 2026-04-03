@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Resume Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">&#9670;</span>
+        <span class="logo-text">ResumeAI</span>
+      </div>
+      <div class="header-badge">Powered by AI</div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">AI-Powered Career Tool</div>
+    <h1 class="hero-title">Analyze Your Resume<br/><span class="accent">Instantly.</span></h1>
+    <p class="hero-sub">Paste your resume, choose a job role, and get a detailed AI review — scores, strengths, gaps, and missing keywords in seconds.</p>
+  </section>
+
+  <!-- MAIN CARD -->
+  <main class="main">
+    <div class="card input-card">
+      <div class="card-label">Step 1 — Paste Your Resume</div>
+      <textarea id="resumeText" placeholder="Paste your full resume text here...&#10;&#10;Example:&#10;Name | Email | LinkedIn&#10;&#10;EDUCATION&#10;B.Tech Computer Science, 2024&#10;&#10;SKILLS&#10;Python, Java, HTML, CSS, SQL&#10;&#10;EXPERIENCE&#10;Intern at XYZ Corp (2023)&#10;- Built REST APIs&#10;- Improved DB speed by 30%"></textarea>
+
+      <div class="card-label mt">Step 2 — Select Target Job Role</div>
+      <div class="role-grid">
+        <button class="role-btn active" data-role="Software Engineer">Software Engineer</button>
+        <button class="role-btn" data-role="Web Developer">Web Developer</button>
+        <button class="role-btn" data-role="Data Scientist">Data Scientist</button>
+        <button class="role-btn" data-role="ML Engineer">ML Engineer</button>
+        <button class="role-btn" data-role="Product Manager">Product Manager</button>
+        <button class="role-btn" data-role="DevOps Engineer">DevOps Engineer</button>
+      </div>
+
+      <button class="analyze-btn" id="analyzeBtn" onclick="analyzeResume()">
+        <span id="btnText">Analyze My Resume</span>
+        <span class="btn-arrow">&#8599;</span>
+      </button>
+    </div>
+
+    <!-- LOADER -->
+    <div class="loader-wrap" id="loader">
+      <div class="loader-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <p class="loader-text">AI is analyzing your resume...</p>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="results" id="results">
+
+      <div class="results-header">
+        <h2>Analysis Results</h2>
+        <span class="results-role" id="resultsRole"></span>
+      </div>
+
+      <!-- SCORE CARDS -->
+      <div class="scores-grid" id="scoresGrid"></div>
+
+      <!-- PROGRESS BARS -->
+      <div class="card detail-card">
+        <div class="detail-title">Score Breakdown</div>
+        <div id="progressBars"></div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="card detail-card">
+        <div class="detail-title">AI Summary</div>
+        <p class="detail-text" id="summaryText"></p>
+      </div>
+
+      <!-- STRENGTHS + IMPROVEMENTS -->
+      <div class="two-col">
+        <div class="card detail-card">
+          <div class="detail-title green-title">&#10003; Strengths</div>
+          <ul class="point-list" id="strengthsList"></ul>
+        </div>
+        <div class="card detail-card">
+          <div class="detail-title amber-title">&#9650; Improvements</div>
+          <ul class="point-list" id="improvementsList"></ul>
+        </div>
+      </div>
+
+      <!-- MISSING KEYWORDS -->
+      <div class="card detail-card">
+        <div class="detail-title red-title">&#9888; Missing Keywords</div>
+        <div class="keywords-wrap" id="keywordsWrap"></div>
+      </div>
+
+      <!-- TIPS -->
+      <div class="card detail-card tips-card">
+        <div class="detail-title">Quick Tips to Improve</div>
+        <div class="tips-list" id="tipsList"></div>
+      </div>
+
+      <button class="reset-btn" onclick="resetForm()">&#8592; Analyze Another Resume</button>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Built with HTML &bull; CSS &bull; JavaScript &bull; Claude AI API &nbsp;|&nbsp; College Project</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
